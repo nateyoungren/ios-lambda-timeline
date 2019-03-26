@@ -17,6 +17,8 @@ class ImagePostViewController: ShiftableViewController {
         setImageViewHeight(with: 1.0)
         
         updateViews()
+        
+        currentFilter = CIFilter(name: "CIColorControls")!
     }
     
     func updateViews() {
@@ -112,15 +114,101 @@ class ImagePostViewController: ShiftableViewController {
         view.layoutSubviews()
     }
     
+    // - MARK: Sliders
+    
+    @IBAction func brightnessSliderValueChanged(_ sender: UISlider) {
+        currentFilter = CIFilter(name: "CIColorControls")!
+        applyFilter()
+    }
+    
+    @IBAction func contrastSliderValueChanged(_ sender: UISlider) {
+        currentFilter = CIFilter(name: "CIColorControls")!
+        applyFilter()
+    }
+    
+    @IBAction func saturationSliderValueChanged(_ sender: UISlider) {
+        currentFilter = CIFilter(name: "CIColorControls")!
+        applyFilter()
+    }
+    
+    @IBAction func temperatureSliderValueChanged(_ sender: UISlider) {
+        currentFilter = CIFilter(name: "CITemperatureAndTint")!
+        tint = CIVector(cgPoint: CGPoint(x: Int(sender.value), y: 0))
+        applyFilter()
+    }
+    
+    @IBAction func invertSwitched(_ sender: UISwitch) {
+        currentFilter = CIFilter(name: "CIColorInvert")!
+        if sender.isOn {
+            isInverted = true
+        } else {
+            isInverted = false
+        }
+        applyFilter()
+    }
+    
+    // - MARK: Image filtering
+    
+    private func applyFilter() {
+        
+        guard let imageData = self.imageData else { return }
+        
+        guard let uiImage = UIImage(data: imageData) else { return }
+        guard let cgImage = uiImage.cgImage else { return }
+        let ciImage = CIImage(cgImage: cgImage)
+        
+        currentFilter.setValue(ciImage, forKey: kCIInputImageKey)
+        let keys = currentFilter.inputKeys
+        
+        if keys.contains("inputNeutralTarget") {
+            currentFilter.setValue(tint, forKey: "inputNeutralTarget")
+        }
+        
+        if keys.contains(kCIInputBrightnessKey) {
+            currentFilter.setValue(brightnessSlider.value, forKey: kCIInputBrightnessKey)
+        }
+        
+        if keys.contains(kCIInputContrastKey) {
+            currentFilter.setValue(contrastSlider.value, forKey: kCIInputContrastKey)
+        }
+        
+        if keys.contains(kCIInputSaturationKey) {
+            currentFilter.setValue(saturationSlider.value, forKey: kCIInputSaturationKey)
+        }
+        
+        guard let outputCIImage = currentFilter.outputImage else { return }
+        guard let outputCGImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else { return }
+        guard let data = UIImage(cgImage: outputCGImage).pngData() else { return }
+        
+        self.imageData = data
+    }
+    
     var postController: PostController!
     var post: Post?
-    var imageData: Data?
+    var imageData: Data? {
+        didSet {
+            updateViews()
+        }
+    }
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var chooseImageButton: UIButton!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var postButton: UIBarButtonItem!
+    
+    @IBOutlet weak var brightnessSlider: UISlider!
+    @IBOutlet weak var contrastSlider: UISlider!
+    @IBOutlet weak var saturationSlider: UISlider!
+    @IBOutlet weak var temperatureSlider: UISlider!
+    @IBOutlet weak var invertSwitch: UISwitch!
+    
+    private var tint: CIVector?
+    
+    private var isInverted: Bool = false
+    
+    private let context = CIContext(options: nil)
+    var currentFilter: CIFilter!
 }
 
 extension ImagePostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -134,6 +222,8 @@ extension ImagePostViewController: UIImagePickerControllerDelegate, UINavigation
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         
         imageView.image = image
+        
+        self.imageData = image.pngData()
         
         setImageViewHeight(with: image.ratio)
     }
