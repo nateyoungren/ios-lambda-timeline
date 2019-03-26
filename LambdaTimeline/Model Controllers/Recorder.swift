@@ -10,11 +10,6 @@ import AVFoundation
 
 class Recorder: NSObject {
     
-    convenience init(url: URL) {
-        self.init()
-        self.url = url
-    }
-    
     private func record() {
         guard let url = url,
         let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 2) else { return }
@@ -37,7 +32,7 @@ class Recorder: NSObject {
         }
     }
     
-    private var isRecording: Bool {
+    var isRecording: Bool {
         return audioRecorder?.isRecording ?? false
     }
     

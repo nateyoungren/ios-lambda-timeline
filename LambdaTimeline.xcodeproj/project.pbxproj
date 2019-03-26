@@ -32,6 +32,7 @@
 		7737AFD8224983F900501C84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7737AFD7224983F900501C84 /* GoogleService-Info.plist */; };
 		775064EF224AD0BF001ECEAC /* CommentRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775064EE224AD0BF001ECEAC /* CommentRecorderViewController.swift */; };
 		775064F1224AD7D9001ECEAC /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775064F0224AD7D9001ECEAC /* Recorder.swift */; };
+		775064F3224AEAC3001ECEAC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775064F2224AEAC3001ECEAC /* Player.swift */; };
 		E453457955DF907FCBD117F1 /* Pods_LambdaTimeline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA39CACB677861CF84322FB5 /* Pods_LambdaTimeline.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		7737AFD7224983F900501C84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		775064EE224AD0BF001ECEAC /* CommentRecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRecorderViewController.swift; sourceTree = "<group>"; };
 		775064F0224AD7D9001ECEAC /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		775064F2224AEAC3001ECEAC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		AA39CACB677861CF84322FB5 /* Pods_LambdaTimeline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LambdaTimeline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 			children = (
 				4646379B2170091A00E7FF73 /* PostController.swift */,
 				775064F0224AD7D9001ECEAC /* Recorder.swift */,
+				775064F2224AEAC3001ECEAC /* Player.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				775064F3224AEAC3001ECEAC /* Player.swift in Sources */,
 				46A0366D2170158900E7FF73 /* SignInViewController.swift in Sources */,
 				46CFE6FB21714E6100E7FF73 /* Author.swift in Sources */,
 				46CFE6F92170862C00E7FF73 /* ShiftableViewController.swift in Sources */,
