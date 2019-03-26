@@ -57,7 +57,22 @@ class ImagePostDetailTableViewController: UITableViewController {
         alert.addAction(addCommentAction)
         alert.addAction(cancelAction)
         
-        present(alert, animated: true, completion: nil)
+        let commentTypeAlert = UIAlertController(title: "Add a comment", message: "Which type of comment would you like to leave?", preferredStyle: .alert)
+        
+        let writtenAction = UIAlertAction(title: "Written", style: .default) { (_) in
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        let audioAction = UIAlertAction(title: "Audio", style: .default) { (_) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CommentRecorderViewController")
+            self.present(vc, animated: true, completion: nil)
+        }
+        
+        commentTypeAlert.addAction(writtenAction)
+        commentTypeAlert.addAction(audioAction)
+        
+        self.present(commentTypeAlert, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

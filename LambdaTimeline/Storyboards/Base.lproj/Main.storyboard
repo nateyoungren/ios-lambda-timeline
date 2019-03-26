@@ -457,5 +457,70 @@
             </objects>
             <point key="canvasLocation" x="1968.8" y="472.71364317841085"/>
         </scene>
+        <!--Comment Recorder View Controller-->
+        <scene sceneID="ngi-Tf-0QZ">
+            <objects>
+                <viewController storyboardIdentifier="CommentRecorderViewController" id="cjk-i0-6eh" customClass="CommentRecorderViewController" customModule="LambdaTimeline" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K9Y-uB-3ve">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="uHd-NC-mR9">
+                                <rect key="frame" x="16" y="601" width="343" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENt-uo-ZIe">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="playPauseButtonWasTapped:" destination="cjk-i0-6eh" eventType="touchUpInside" id="mUV-NJ-0Od"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2N-YY-2fZ">
+                                        <rect key="frame" x="49" y="0.0" width="36" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="WOs-Cv-mpW">
+                                        <rect key="frame" x="102" y="0.0" width="188" height="31"/>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWx-8h-5WC">
+                                        <rect key="frame" x="307" y="0.0" width="36" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU4-QA-Zqe">
+                                <rect key="frame" x="163" y="318.5" width="49" height="30"/>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="recordButtonWasTapped:" destination="cjk-i0-6eh" eventType="touchUpInside" id="hvI-0V-Jnb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GU4-QA-Zqe" firstAttribute="centerX" secondItem="K9Y-uB-3ve" secondAttribute="centerX" id="9fx-j5-00L"/>
+                            <constraint firstItem="GU4-QA-Zqe" firstAttribute="centerY" secondItem="K9Y-uB-3ve" secondAttribute="centerY" id="NE0-rb-TVI"/>
+                            <constraint firstItem="ljF-U7-4jm" firstAttribute="trailing" secondItem="uHd-NC-mR9" secondAttribute="trailing" constant="16" id="XwO-DQ-YYm"/>
+                            <constraint firstItem="uHd-NC-mR9" firstAttribute="leading" secondItem="ljF-U7-4jm" secondAttribute="leading" constant="16" id="aUk-tM-8sw"/>
+                            <constraint firstItem="ljF-U7-4jm" firstAttribute="bottom" secondItem="uHd-NC-mR9" secondAttribute="bottom" constant="36" id="mY9-Xb-nYG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ljF-U7-4jm"/>
+                    </view>
+                    <connections>
+                        <outlet property="audioSlider" destination="WOs-Cv-mpW" id="6th-KU-j5b"/>
+                        <outlet property="elapsedTime" destination="g2N-YY-2fZ" id="Q33-1k-rwg"/>
+                        <outlet property="playButton" destination="ENt-uo-ZIe" id="LiU-hR-qUQ"/>
+                        <outlet property="recordButton" destination="GU4-QA-Zqe" id="1LP-BJ-d21"/>
+                        <outlet property="remainingTime" destination="EWx-8h-5WC" id="ijM-Md-Kzf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hL3-bx-0cb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2742" y="423"/>
+        </scene>
     </scenes>
 </document>
