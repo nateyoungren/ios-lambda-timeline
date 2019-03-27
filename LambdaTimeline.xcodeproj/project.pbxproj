@@ -35,6 +35,7 @@
 		775064F3224AEAC3001ECEAC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775064F2224AEAC3001ECEAC /* Player.swift */; };
 		77ADE67D224C2FAE000D52FF /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ADE67C224C2FAE000D52FF /* CameraViewController.swift */; };
 		77ADE67F224C324D000D52FF /* CameraPreViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ADE67E224C324D000D52FF /* CameraPreViewView.swift */; };
+		77ADE681224C36ED000D52FF /* CameraPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ADE680224C36ED000D52FF /* CameraPresentViewController.swift */; };
 		E453457955DF907FCBD117F1 /* Pods_LambdaTimeline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA39CACB677861CF84322FB5 /* Pods_LambdaTimeline.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		775064F2224AEAC3001ECEAC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		77ADE67C224C2FAE000D52FF /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		77ADE67E224C324D000D52FF /* CameraPreViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreViewView.swift; sourceTree = "<group>"; };
+		77ADE680224C36ED000D52FF /* CameraPresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPresentViewController.swift; sourceTree = "<group>"; };
 		AA39CACB677861CF84322FB5 /* Pods_LambdaTimeline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LambdaTimeline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -176,6 +178,7 @@
 				46D571F72173FC2700E7FF73 /* ImagePostDetailTableViewController.swift */,
 				775064EE224AD0BF001ECEAC /* CommentRecorderViewController.swift */,
 				77ADE67C224C2FAE000D52FF /* CameraViewController.swift */,
+				77ADE680224C36ED000D52FF /* CameraPresentViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 			files = (
 				775064F3224AEAC3001ECEAC /* Player.swift in Sources */,
 				46A0366D2170158900E7FF73 /* SignInViewController.swift in Sources */,
+				77ADE681224C36ED000D52FF /* CameraPresentViewController.swift in Sources */,
 				46CFE6FB21714E6100E7FF73 /* Author.swift in Sources */,
 				77ADE67D224C2FAE000D52FF /* CameraViewController.swift in Sources */,
 				46CFE6F92170862C00E7FF73 /* ShiftableViewController.swift in Sources */,
