@@ -301,6 +301,21 @@
             </objects>
             <point key="canvasLocation" x="1969" y="-195"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="RSP-zd-ulz">
+            <objects>
+                <viewController id="Hay-Es-D82" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O3u-bn-1v1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="b6N-0z-Isq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IjJ-B5-oqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2799" y="-351"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gdW-Je-ais">
             <objects>
@@ -469,20 +484,20 @@
                                 <rect key="frame" x="16" y="601" width="343" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENt-uo-ZIe">
-                                        <rect key="frame" x="0.0" y="0.0" width="36" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="30"/>
                                         <state key="normal" title="Play"/>
                                         <connections>
                                             <action selector="playPauseButtonWasTapped:" destination="cjk-i0-6eh" eventType="touchUpInside" id="mUV-NJ-0Od"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2N-YY-2fZ">
-                                        <rect key="frame" x="55" y="0.0" width="36" height="30"/>
+                                        <rect key="frame" x="51" y="0.0" width="36" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="WOs-Cv-mpW">
-                                        <rect key="frame" x="108" y="0.0" width="127" height="31"/>
+                                        <rect key="frame" x="104" y="0.0" width="131" height="31"/>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWx-8h-5WC">
                                         <rect key="frame" x="252" y="0.0" width="36" height="30"/>
