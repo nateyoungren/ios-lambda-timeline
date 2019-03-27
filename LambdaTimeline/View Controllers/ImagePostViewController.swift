@@ -35,6 +35,7 @@ class ImagePostViewController: ShiftableViewController {
         
         imageView.image = image
         
+        
         chooseImageButton.setTitle("", for: [])
     }
     
