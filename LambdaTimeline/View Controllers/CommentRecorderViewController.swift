@@ -38,6 +38,15 @@ class CommentRecorderViewController: UIViewController {
         player.togglePlayPause()
     }
     
+    @IBAction func sendButtonTapped(_ sender: UIButton) {
+        guard let postController = postController, post != nil, let url = url else {
+            print("Post or PostController is missing.")
+            return
+        }
+        postController.addComment(withAudio: url, to: &self.post!)
+        dismiss(animated: true, completion: nil)
+    }
+    
     func styleRecordButton() {
         
         if player != nil {
@@ -47,6 +56,7 @@ class CommentRecorderViewController: UIViewController {
             playButton.alpha = 0
             elapsedTime.alpha = 0
             remainingTime.alpha = 0
+            sendButton.alpha = 0
         }
         
         recordButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -77,11 +87,14 @@ class CommentRecorderViewController: UIViewController {
         playButton.alpha = 1
         elapsedTime.alpha = 1
         remainingTime.alpha = 1
+        sendButton.alpha = 1
         
         if player.isPlaying {
-            playButton.setTitle("Pause", for: .normal)
+            playButton.setTitle("||", for: .normal)
+            playButton.tintColor = UIColor.black
         } else {
-            playButton.setTitle("Play", for: .normal)
+            playButton.setTitle("➜", for: .normal)
+            playButton.tintColor = UIColor.red
         }
         
         elapsedTime.text = timeFormatter.string(from: player.currentTime)
@@ -90,6 +103,16 @@ class CommentRecorderViewController: UIViewController {
         audioSlider.maximumValue = Float(player.duration)
         audioSlider.minimumValue = 0
         audioSlider.value = Float(player.currentTime)
+        
+        sendButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        sendButton.widthAnchor.constraint(equalTo: sendButton.heightAnchor).isActive = true
+        
+        sendButton.layer.cornerRadius = 10
+        sendButton.layer.masksToBounds = true
+        
+        sendButton.backgroundColor = UIColor.blue
+        sendButton.tintColor = UIColor.white
+        sendButton.setTitle("↑", for: .normal)
     }
     
     @IBOutlet weak var recordButton: UIButton!
@@ -97,11 +120,15 @@ class CommentRecorderViewController: UIViewController {
     @IBOutlet weak var elapsedTime: UILabel!
     @IBOutlet weak var audioSlider: UISlider!
     @IBOutlet weak var remainingTime: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
     
     var url: URL?
     
     let recorder = Recorder()
     var player: Player?
+    
+    var post: Post?
+    var postController: PostController?
     
     private lazy var timeFormatter: DateComponentsFormatter = {
         let f = DateComponentsFormatter()

@@ -469,27 +469,34 @@
                                 <rect key="frame" x="16" y="601" width="343" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENt-uo-ZIe">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="36" height="30"/>
                                         <state key="normal" title="Play"/>
                                         <connections>
                                             <action selector="playPauseButtonWasTapped:" destination="cjk-i0-6eh" eventType="touchUpInside" id="mUV-NJ-0Od"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2N-YY-2fZ">
-                                        <rect key="frame" x="49" y="0.0" width="36" height="30"/>
+                                        <rect key="frame" x="55" y="0.0" width="36" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="WOs-Cv-mpW">
-                                        <rect key="frame" x="102" y="0.0" width="188" height="31"/>
+                                        <rect key="frame" x="108" y="0.0" width="127" height="31"/>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWx-8h-5WC">
-                                        <rect key="frame" x="307" y="0.0" width="36" height="30"/>
+                                        <rect key="frame" x="252" y="0.0" width="36" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wQ-zo-9ZG">
+                                        <rect key="frame" x="307" y="0.0" width="36" height="30"/>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="cjk-i0-6eh" eventType="touchUpInside" id="tJk-ej-sfq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU4-QA-Zqe">
@@ -516,6 +523,7 @@
                         <outlet property="playButton" destination="ENt-uo-ZIe" id="LiU-hR-qUQ"/>
                         <outlet property="recordButton" destination="GU4-QA-Zqe" id="1LP-BJ-d21"/>
                         <outlet property="remainingTime" destination="EWx-8h-5WC" id="ijM-Md-Kzf"/>
+                        <outlet property="sendButton" destination="5wQ-zo-9ZG" id="p1T-ld-8qZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hL3-bx-0cb" userLabel="First Responder" sceneMemberID="firstResponder"/>

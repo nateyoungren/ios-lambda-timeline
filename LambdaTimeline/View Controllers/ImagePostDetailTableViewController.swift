@@ -45,7 +45,7 @@ class ImagePostDetailTableViewController: UITableViewController {
             
             guard let commentText = commentTextField?.text else { return }
             
-            self.postController.addComment(with: commentText, to: &self.post!)
+            self.postController.addComment(withText: commentText, to: &self.post)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -66,6 +66,9 @@ class ImagePostDetailTableViewController: UITableViewController {
         let audioAction = UIAlertAction(title: "Audio", style: .default) { (_) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "CommentRecorderViewController")
+            guard let recorderVC = vc as? CommentRecorderViewController else { return }
+            recorderVC.post = self.post
+            recorderVC.postController = self.postController
             self.present(vc, animated: true, completion: nil)
         }
         
