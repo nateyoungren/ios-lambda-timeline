@@ -14,6 +14,8 @@ class CameraPresentViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        view.backgroundColor = UIColor.black
+        
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         
         switch status {

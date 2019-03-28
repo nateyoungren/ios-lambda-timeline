@@ -301,10 +301,10 @@
             </objects>
             <point key="canvasLocation" x="1969" y="-195"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera Present View Controller-->
         <scene sceneID="RSP-zd-ulz">
             <objects>
-                <viewController id="Hay-Es-D82" sceneMemberID="viewController">
+                <viewController id="Hay-Es-D82" customClass="CameraPresentViewController" customModule="LambdaTimeline" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O3u-bn-1v1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -319,16 +319,45 @@
             </objects>
             <point key="canvasLocation" x="2799" y="-351"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="ZCe-Vs-l15">
             <objects>
-                <viewController id="MhS-TD-aXm" sceneMemberID="viewController">
+                <viewController id="MhS-TD-aXm" customClass="CameraViewController" customModule="LambdaTimeline" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YrC-EH-dyc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWa-t9-0dG" customClass="CameraPreViewView" customModule="LambdaTimeline" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76b-9Q-s6M">
+                                <rect key="frame" x="157.5" y="547" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="DZk-18-Eqq"/>
+                                    <constraint firstAttribute="width" constant="60" id="bjv-ZX-2WA"/>
+                                </constraints>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="recordButtonTapped:" destination="MhS-TD-aXm" eventType="touchUpInside" id="zdV-uG-AHp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LxE-E4-Eth" firstAttribute="trailing" secondItem="GWa-t9-0dG" secondAttribute="trailing" id="Bgs-fg-VfZ"/>
+                            <constraint firstItem="GWa-t9-0dG" firstAttribute="leading" secondItem="LxE-E4-Eth" secondAttribute="leading" id="K5y-Lh-c5E"/>
+                            <constraint firstItem="GWa-t9-0dG" firstAttribute="top" secondItem="YrC-EH-dyc" secondAttribute="top" id="OHa-GZ-lku"/>
+                            <constraint firstItem="LxE-E4-Eth" firstAttribute="bottom" secondItem="76b-9Q-s6M" secondAttribute="bottom" constant="60" id="T6c-oV-Xq3"/>
+                            <constraint firstAttribute="bottom" secondItem="GWa-t9-0dG" secondAttribute="bottom" id="obQ-Fq-0yO"/>
+                            <constraint firstItem="76b-9Q-s6M" firstAttribute="centerX" secondItem="LxE-E4-Eth" secondAttribute="centerX" id="pnL-JA-JiA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="LxE-E4-Eth"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="GWa-t9-0dG" id="P0E-F7-O9N"/>
+                        <outlet property="recordButton" destination="76b-9Q-s6M" id="qq8-0k-HSU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3y-HS-UPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
